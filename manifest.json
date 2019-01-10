@@ -1,15 +1,23 @@
+
+
 {
-   "manifest_version": 2,
-
-   "name": "adoor notifications",
-    "description": "Notification checker for adoor.app",
-    "version": "1.0",
-
-    "browser_action": {
-      "default_icon": "icon.png",
-      "default_popup": "popup.html"
-   },
-   "permissions": [
-      "activeTab"
-   ]
+  "name": "Drink Water Event Popup",
+  "description": "Demonstrates usage and features of the event page by reminding user to drink water",
+  "version": "1.0",
+  "manifest_version": 2,
+  "permissions": ["alarms", "notifications", "storage"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "Drink Water Event",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "adoor16.png",
+    "32": "adoor32.png",
+    "48": "adoor48.png",
+    "128": "adoor128.png"
+  }
 }
