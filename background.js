@@ -19,6 +19,15 @@ chrome.alarms.onAlarm.addListener(function() {
 chrome.notifications.onButtonClicked.addListener(function() {
   chrome.storage.sync.get(['minutes'], function(item) {
     chrome.browserAction.setBadgeText({text: 'ON'});
+    chrome.tabs.create({ active: true, url : "https://adoor.app" });
     chrome.alarms.create({delayInMinutes: item.minutes});
   });
 });
+
+// var count = 0;
+// Array.prototype.forEach.call(x, function(el) {
+// if (el.className.split(' ')[1] == 'unread') {
+// 		 console.log("unread");
+//     count++;
+//     }
+// });
