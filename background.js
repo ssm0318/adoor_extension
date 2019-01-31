@@ -3,8 +3,8 @@
 // found in the LICENSE file.
 'use strict';
 
+
 chrome.alarms.onAlarm.addListener(function() {
-  chrome.browserAction.setBadgeText({text: ''});
   chrome.notifications.create({
       type:     'basic',
       iconUrl:  'icon.png',
@@ -14,17 +14,13 @@ chrome.alarms.onAlarm.addListener(function() {
         {title: 'Check Notifications'}
       ],
       priority: 0});
-});
+}); 
 
 chrome.notifications.onButtonClicked.addListener(function() {
-  // chrome.storage.sync.get(['minutes'], function(item) {
-    chrome.browserAction.setBadgeText({text: 'ON'});
     chrome.tabs.create({ active: true, url : "https://adoor.app" });
-    // chrome.alarms.create({delayInMinutes: item.minutes});
-    // chrome.alarms.create({delayInMinutes: 0});
-  // });
-    chrome.alarms.clearAll();
 });
+ 
+
 
 // var count = 0;
 // Array.prototype.forEach.call(x, function(el) {
@@ -112,20 +108,6 @@ chrome.notifications.onButtonClicked.addListener(function() {
 
 //   window.clearInterval(this.timerId_);
 //   this.timerId_ = 0;
-// }
-
-// function updateIcon() {
-//   if (!localStorage.hasOwnProperty('unreadCount')) {
-//     chrome.browserAction.setIcon({path:"icon19-bnw.png"});
-//     chrome.browserAction.setBadgeBackgroundColor({color:[190, 190, 190, 230]});
-//     chrome.browserAction.setBadgeText({text:"?"});
-//   } else {
-//     chrome.browserAction.setIcon({path: "icon19.png"});
-//     chrome.browserAction.setBadgeBackgroundColor({color:[208, 0, 24, 255]});
-//     chrome.browserAction.setBadgeText({
-//       text: localStorage.unreadCount != "0" ? localStorage.unreadCount : ""
-//     });
-//   }
 // }
 
 // function scheduleRequest() {

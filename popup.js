@@ -4,32 +4,44 @@
 'use strict';
 
 function setAlarm(event) {
-  // let minutes = parseFloat(event.target.value);
-  chrome.browserAction.setBadgeText({text: 'ON'});
-  // chrome.alarms.create({delayInMinutes: minutes});
   chrome.alarms.create({delayInMinutes: 0});
-  // chrome.storage.sync.set({minutes: minutes});
 
   $.ajax({                                                
-    type: "GET",                                         
+    type: "GET",                                        
     url: "https://adoor.app/unread",
-    dataType: "json",                                     
-    success: function(data, textStatus, request) {  
-
-      console.log("success!");
+    contentType: "application/json; charset=utf-8",
+    success: function(data) {
+      localStorage.name = data.name;
+      localStorage.count = data.id.length.toString();
+      updateIcon();
     },                                                    
-    error:function(e) {                                   
-      console.log("error!");
+      error: function(e) {
+        console.log(e);
+        chrome.browserAction.setBadgeText({text: "ERROR"});
     }                                                      
   });
-
-  window.close();
 }
 
-function clearAlarm() {
-  chrome.browserAction.setBadgeText({text: ''});
-  chrome.alarms.clearAll();
-  window.close();
+function updateIcon() {
+  console.log(localStorage.name);
+  if (localStorage.name == "akdfasldksladlsakvlsfjaoifnowknalkvnkvdowisvdknlweoifjwe") {
+    chrome.browserAction.setIcon({path: "icon19-bnw.png"});
+    chrome.browserAction.setBadgeBackgroundColor({color:[190, 190, 190, 230]});
+    chrome.browserAction.setBadgeText({text: "?"});
+  } else {
+    chrome.browserAction.setIcon({path: "icon19.png"});
+    chrome.browserAction.setBadgeBackgroundColor({color:[244, 132, 98, 255]});
+    chrome.browserAction.setBadgeText({ text: localStorage.count });
+  }
 }
 
-document.getElementById('alarm-on-off').addEventListener('click', setAlarm);
+document.getElementById('alarm-on-off').addEventListener('click', function(){
+  if(localStorage.alarm == "on") {
+    localStorage.alarm = "off";
+    $("#alarm-on-off").text('알림 설정 끄기');
+  } else {
+    localStorage.alarm = "on";
+    $("#alarm-on-off").text('알림 설정 켜기');
+  }
+  setAlarm();
+});
