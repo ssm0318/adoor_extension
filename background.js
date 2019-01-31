@@ -17,11 +17,13 @@ chrome.alarms.onAlarm.addListener(function() {
 });
 
 chrome.notifications.onButtonClicked.addListener(function() {
-  chrome.storage.sync.get(['minutes'], function(item) {
+  // chrome.storage.sync.get(['minutes'], function(item) {
     chrome.browserAction.setBadgeText({text: 'ON'});
     chrome.tabs.create({ active: true, url : "https://adoor.app" });
-    chrome.alarms.create({delayInMinutes: item.minutes});
-  });
+    // chrome.alarms.create({delayInMinutes: item.minutes});
+    // chrome.alarms.create({delayInMinutes: 0});
+  // });
+    chrome.alarms.clearAll();
 });
 
 // var count = 0;

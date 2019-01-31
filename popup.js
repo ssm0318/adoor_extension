@@ -4,34 +4,26 @@
 'use strict';
 
 function setAlarm(event) {
-  let minutes = parseFloat(event.target.value);
+  // let minutes = parseFloat(event.target.value);
   chrome.browserAction.setBadgeText({text: 'ON'});
-  chrome.alarms.create({delayInMinutes: minutes});
-  chrome.storage.sync.set({minutes: minutes});
+  // chrome.alarms.create({delayInMinutes: minutes});
+  chrome.alarms.create({delayInMinutes: 0});
+  // chrome.storage.sync.set({minutes: minutes});
 
   $.ajax({                                                
     type: "GET",                                         
-    url: "http://localhost:3000/test",
-    // headers: json,                                        
+    url: "https://adoor.app/unread",
     dataType: "json",                                     
-    // data: {user: localStorage.getItem('yeahapUser')},     
-    success: function(data, textStatus, request) {        
-      // option 2 : true -> excute resetToken()           
-    //   setLocalStorage(data, true, request);               
-    //   $('#shortcut-items').empty();                       
-    //   setShortcut(data.shortcut);                         
-        // console.log(data.name);
-        $("body").html("<p>" + data.name + "</p>");
+    success: function(data, textStatus, request) {  
+
+      console.log("success!");
     },                                                    
     error:function(e) {                                   
-      //alert(e.responseText);                            
-    //   chrome.tabs.create({url: FRONT + "/users/sign_in"});
-        $("body").html("<p>ERROR!!!</p>");
-        //console.log("error!");
-    }                                                     
+      console.log("error!");
+    }                                                      
   });
 
-//   window.close();
+  window.close();
 }
 
 function clearAlarm() {
@@ -40,6 +32,4 @@ function clearAlarm() {
   window.close();
 }
 
-//An Alarm delay of less than the minimum 1 minute will fire
-// in approximately 1 minute incriments if released
-document.getElementById('sampleSecond').addEventListener('click', setAlarm);
+document.getElementById('alarm-on-off').addEventListener('click', setAlarm);
