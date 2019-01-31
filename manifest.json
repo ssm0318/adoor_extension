@@ -5,14 +5,15 @@
   "description": "Creates alarms whenever users receive new notifications.",
   "version": "1.0",
   "manifest_version": 2,
-  "permissions": ["alarms", "notifications", "storage", "tabs", "webNavigation"],
+  "permissions": ["alarms", "notifications", "storage", "tabs", "webNavigation", "*://adoor.app/*"],
   "background": {
     "persistent": false,
     "page": "background.html"
   },
   "browser_action": {
     "default_title": "Adoor Notification",
-    "default_icon": "icon19-bnw.png"
+    "default_icon": "icon19-bnw.png",
+    "default_popup": "popup.html"
   },
   "icons": {
     "128": "adoor128.png"
