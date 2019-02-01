@@ -87,7 +87,9 @@ function setAlarm(event) {
     },                                                    
       error: function(e) {
         console.log(e);
-        chrome.browserAction.setBadgeText({text: "ERROR"});
+        chrome.browserAction.setIcon({path: "icon19-bnw.png"});
+        chrome.browserAction.setBadgeBackgroundColor({color:[190, 190, 190, 230]});
+        // chrome.browserAction.setBadgeText({text: "ERROR"});
     }                                                      
   });
 }
