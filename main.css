@@ -4,10 +4,11 @@
 
 #alarm-on-off {
     text-align: center;
-    font-family: 'Nanul Gothic', sans-serif;
-    background-color:rgb(222, 222, 222);
+    font-family: 'Nanum Gothic', sans-serif;
+    background-color: rgba(244, 132, 98, 0.15);
+    color: rgba(244, 132, 98, 1);
     margin: 10px;
-    border: none;
     border-radius: 10px;
     padding: 10px;
+    border: rgba(244, 132, 98, 1);
 }
