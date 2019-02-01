@@ -24,19 +24,11 @@ found in the LICENSE file. -->
         outline: #80DEEA dotted thick;
       }
     </style>
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
+
   </head>
   <body>
       <img src='./icon.png' id='adoor_logo'>
-      <!-- An Alarm delay of less than the minimum 1 minute will fire
-      in approximately 1 minute increments if released -->
       <input type="button" id='alarm-on-off'>
-    <!-- link to non-persistent background script -->
     <script src="popup.js"></script>
     <script src="jquery-3.3.1.min.js"></script>
   </body>
