@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 'use strict';
 
-setInterval(setAlarm, 1000);
+setInterval(setAlarm, 5 * 60 * 1000);
 
 chrome.browserAction.onClicked.addListener(goToInbox);
 
