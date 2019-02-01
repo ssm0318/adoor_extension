@@ -3,7 +3,7 @@
 {
   "name": "adoor(어도어) Notification Checker",
   "description": "Help users keep track of notifications from https://adoor.app .",
-  "version": "1.0",
+  "version": "1.1",
   "manifest_version": 2,
   "permissions": ["alarms", "notifications", "storage", "tabs", "webNavigation", "*://adoor.app/*"],
   "background": {
